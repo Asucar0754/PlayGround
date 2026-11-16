@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <meta name="theme-color" content="#10131c" />
-  <title>Ritmo Felino — Corrida nas alturas</title>
+  <title>Ritmo Felino — A Lenda das Três Melodias</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,40 +21,40 @@
       <canvas id="game" width="960" height="540" aria-label="Jogo de plataforma Ritmo Felino"></canvas>
       <div class="hud" id="hud" hidden>
         <div class="hud-left"><div class="level-chip"><span class="level-icon">◈</span><span id="levelName">VILA DOS TELHADOS</span></div><div class="progress-track"><i id="progressBar"></i></div></div>
-        <div class="hud-center"><span class="hud-caption">TEMPO</span><strong id="timer">00:00.0</strong><span class="best-label" id="bestTime">RECORDE —</span></div>
-        <div class="hud-right"><div class="notes-pill"><span>♫</span><strong id="noteCount">0</strong><small>NOTAS</small></div><div class="combo-pill"><span class="combo-flame">✦</span><strong id="comboCount">0</strong><small>STREAK</small></div><button class="pause-button" id="pauseButton" aria-label="Pausar">Ⅱ</button></div>
+        <div class="hud-center"><span class="hud-caption">JORNADA</span><strong id="timer">00:00.0</strong><span class="best-label" id="bestTime">♫ 0/3 · FRAG. 0/4</span></div>
+        <div class="hud-right"><div class="notes-pill"><span>♥</span><strong id="noteCount">3</strong><small>VIDA</small></div><div class="combo-pill"><span class="combo-flame">✦</span><strong id="comboCount">0</strong><small>FRAGMENTOS</small></div><button class="pause-button" id="pauseButton" aria-label="Pausar">Ⅱ</button></div>
       </div>
       <div class="beat-indicator" id="beatIndicator" hidden><span class="beat-ring"></span><span>BATIDA</span></div>
       <div class="toast" id="toast"></div>
       <div class="screen" id="titleScreen">
         <div class="title-copy">
-          <div class="eyebrow"><span class="eyebrow-line"></span>UMA CORRIDA NO SEU RITMO</div>
-          <h1>Pequeno gato.<br><em>Grandes saltos.</em></h1>
-          <p>Corra pelos telhados, atravesse florestas e descubra ruínas perdidas. O segredo está no tempo da batida.</p>
-          <div class="title-actions"><button class="primary-button" id="playButton"><span>JOGAR AGORA</span><b>↗</b></button><button class="quiet-button" id="howButton">COMO JOGAR <span>↓</span></button></div>
+          <div class="eyebrow"><span class="eyebrow-line"></span>UMA AVENTURA MUSICAL</div>
+          <h1>Uma lenda.<br><em>Três melodias.</em></h1>
+          <p>Explore uma vila, uma floresta e ruínas antigas como um gato preto. Lute, escale e resolva templos para despertar a música que abre o caminho.</p>
+          <div class="title-actions"><button class="primary-button" id="playButton"><span>COMEÇAR A AVENTURA</span><b>↗</b></button><button class="quiet-button" id="howButton">COMO JOGAR <span>↓</span></button></div>
           <div class="title-stats"><span><b>03</b> MUNDOS</span><i></i><span><b>∞</b> BATIDAS</span><i></i><span><b>♫</b> AVENTURA</span></div>
         </div>
         <div class="hero-cat" aria-hidden="true"><div class="hero-glow"></div><div class="hero-moon"></div><div class="hero-cat-art"><span class="cat-tail"></span><span class="cat-body"></span><span class="cat-head"><i class="ear left"></i><i class="ear right"></i><i class="eye left"></i><i class="eye right"></i><i class="whisker w1"></i><i class="whisker w2"></i></span><span class="cat-leg leg1"></span><span class="cat-leg leg2"></span></div><div class="hero-note note-a">♫</div><div class="hero-note note-b">♪</div><div class="hero-stars">✦　 ·　 ✧<br>　 ·　　 ✦</div><div class="hero-caption"><span>01 / 03</span><i></i><span>VILA DOS TELHADOS</span></div></div>
       </div>
       <div class="screen level-screen" id="levelScreen" hidden>
-        <div class="level-heading"><div class="eyebrow"><span class="eyebrow-line"></span>ESCOLHA SEU CAMINHO</div><h2>Três mundos.<br><em>Um só ritmo.</em></h2><p>Cada caminho tem seus próprios desafios.</p></div>
+        <div class="level-heading"><div class="eyebrow"><span class="eyebrow-line"></span>MAPA DA JORNADA</div><h2>Explore.<br><em>Desperte a música.</em></h2><p>As regiões se conectam. Melodias e marcos salvam seu progresso.</p></div>
         <div class="level-cards">
-          <button class="level-card selected" data-level="0"><span class="card-number">01</span><span class="card-art village-art"><i></i><b></b><small>♫</small></span><strong>Vila dos telhados</strong><span class="card-description">Aprenda a correr, saltar e deslizar.</span><span class="card-meta">INÍCIO · 2 MIN</span></button>
-          <button class="level-card" data-level="1"><span class="card-number">02</span><span class="card-art forest-art"><i></i><b></b><small>✦</small></span><strong>Floresta sussurrante</strong><span class="card-description">Escaladas altas e galhos estreitos.</span><span class="card-meta">INTERMEDIÁRIO · 3 MIN</span></button>
-          <button class="level-card" data-level="2"><span class="card-number">03</span><span class="card-art ruins-art"><i></i><b></b><small>◈</small></span><strong>Ruínas do eco</strong><span class="card-description">Armadilhas antigas, ritmo perfeito.</span><span class="card-meta">AVANÇADO · 3 MIN</span></button>
+          <button class="level-card selected" data-level="0"><span class="card-number">01</span><span class="card-art village-art"><i></i><b></b><small>♫</small></span><strong>Vila dos telhados</strong><span class="card-description">Conheça os moradores e encontre o primeiro templo.</span><span class="card-meta">MARCO INICIAL · MELODIA I</span></button>
+          <button class="level-card" data-level="1"><span class="card-number">02</span><span class="card-art forest-art"><i></i><b></b><small>✦</small></span><strong>Floresta sussurrante</strong><span class="card-description">Escalada, criaturas e o segundo guardião.</span><span class="card-meta">FLORESTA · MELODIA II</span></button>
+          <button class="level-card" data-level="2"><span class="card-number">03</span><span class="card-art ruins-art"><i></i><b></b><small>◈</small></span><strong>Ruínas do eco</strong><span class="card-description">Resolva o último templo e enfrente o guardião.</span><span class="card-meta">RUÍNAS · MELODIA III</span></button>
         </div>
-        <div class="level-footer"><button class="text-back" id="backButton">← VOLTAR</button><button class="primary-button compact" id="startLevelButton"><span>ENTRAR NO MUNDO</span><b>↗</b></button><span class="level-hint">DICA: NOTAS ABREM ATALHOS SECRETOS</span></div>
+        <div class="level-footer"><button class="text-back" id="backButton">← VOLTAR</button><button class="primary-button compact" id="startLevelButton"><span>CONTINUAR A EXPLORAÇÃO</span><b>↗</b></button><span class="level-hint">DICA: FALE, COMPRE MELHORIAS E SALVE NOS MARCOS</span></div>
       </div>
       <div class="screen pause-screen" id="pauseScreen" hidden>
-        <div class="pause-card"><div class="pause-icon">Ⅱ</div><div class="eyebrow centered">UM RESPIRO</div><h2>Em pausa.</h2><p>A batida espera por você.</p><button class="primary-button" id="resumeButton"><span>CONTINUAR</span><b>▶</b></button><button class="quiet-button" id="restartButton">RECOMEÇAR FASE</button><button class="quiet-button" id="exitButton">ESCOLHER OUTRO MUNDO</button></div>
+        <div class="pause-card"><div class="pause-icon">Ⅱ</div><div class="eyebrow centered">UM RESPIRO</div><h2>Em pausa.</h2><p>Seu progresso fica salvo nos marcos da jornada.</p><button class="primary-button" id="resumeButton"><span>CONTINUAR</span><b>▶</b></button><button class="quiet-button" id="restartButton">RECOMEÇAR FASE</button><button class="quiet-button" id="exitButton">ESCOLHER OUTRO MUNDO</button></div>
       </div>
       <div class="screen result-screen" id="resultScreen" hidden>
         <div class="result-card"><div class="result-stamp" id="resultStamp">✦</div><div class="eyebrow centered" id="resultEyebrow">CORRIDA CONCLUÍDA</div><h2 id="resultTitle">No ritmo!</h2><p id="resultMessage">Cada batida te levou mais longe.</p><div class="result-stats"><div><small>TEMPO</small><strong id="resultTime">00:00.0</strong></div><div><small>NOTAS</small><strong id="resultNotes">0 / 0</strong></div><div><small>MELHOR STREAK</small><strong id="resultCombo">0</strong></div></div><button class="primary-button" id="againButton"><span>JOGAR DE NOVO</span><b>↻</b></button><button class="quiet-button" id="resultLevelsButton">ESCOLHER OUTRO MUNDO</button></div>
       </div>
-      <div class="controls-hint" id="controlsHint"><span>ESPAÇO / ↑</span> PULAR <i></i><span>↓</span> DESLIZAR <i></i><span>SHIFT / X</span> AGARRAR</div>
-      <div class="mobile-controls" id="mobileControls" hidden><button data-action="grab" aria-label="Agarrar">↟<small>AGARRAR</small></button><button data-action="slide" aria-label="Deslizar">⌄<small>DESLIZAR</small></button><button data-action="jump" aria-label="Pular">↑<small>PULAR</small></button></div>
+      <div class="controls-hint" id="controlsHint"><span>A/D</span> MOVER <i></i><span>ESPAÇO</span> PULAR <i></i><span>Z</span> GARRAS <i></i><span>SHIFT</span> ROLAR <i></i><span>E</span> INTERAGIR <i></i><span>M</span> MAPA</div>
+      <div class="mobile-controls" id="mobileControls" hidden><button data-action="left" aria-label="Mover para a esquerda">←<small>ESQ.</small></button><button data-action="right" aria-label="Mover para a direita">→<small>DIR.</small></button><button data-action="grab" aria-label="Agarrar ou interagir">↟<small>AGARRAR</small></button><button data-action="attack" aria-label="Atacar">✦<small>ATACAR</small></button><button data-action="slide" aria-label="Rolar">⌄<small>ROLAR</small></button><button data-action="jump" aria-label="Pular">↑<small>PULAR</small></button></div>
     </section>
-    <footer class="footer"><span>© 2026 RITMO FELINO</span><span>FEITO PARA QUEM NÃO PARA <b>✦</b></span><span class="footer-keys">WASD / TOQUE NA TELA</span></footer>
+    <footer class="footer"><span>© 2026 RITMO FELINO</span><span>UMA LENDA FELINA <b>✦</b></span><span class="footer-keys">WASD / CONTROLES DE TOQUE</span></footer>
   </main>
   <script src="game.js"></script>
 </body>
